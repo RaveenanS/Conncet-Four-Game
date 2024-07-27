@@ -1,5 +1,4 @@
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class Connect4 {
 
@@ -77,14 +76,48 @@ public class Connect4 {
     }
 
     private String checkForWinner() {
-        // Implement the logic to check for a winner
-        // This includes horizontal, vertical, and diagonal checks
-        // Return "X" if Player 1 wins, "O" if Player 2 wins, or null if no winner yet
-        // You may use the methods checkVerticalWinner(), checkHorizontalWinner(), etc., here
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 4; col++) {
+                String piece = board[row][col];
+                if (!piece.equals(" - ") && piece.equals(board[row][col + 1]) && piece.equals(board[row][col + 2]) && piece.equals(board[row][col + 3])) 
+                {
+                    return piece;
+                }
+            }
+        }
+
+        for (int col = 0; col < 7; col++) {
+            for (int row = 0; row < 3; row++) {
+                String piece = board[row][col];
+                if (!piece.equals(" - ") && piece.equals(board[row + 1][col]) && piece.equals(board[row + 2][col]) && piece.equals(board[row + 3][col])) 
+                {
+                    return piece;
+                }
+            }
+        }
+        for (int row = 3; row < 6; row++) {
+            for (int col = 0; col < 4; col++) {
+                String piece = board[row][col];
+                if (!piece.equals(" - ") && piece.equals(board[row - 1][col + 1]) && piece.equals(board[row - 2][col + 2]) && piece.equals(board[row - 3][col + 3])) 
+                {
+                    return piece;
+                }
+            }
+        }
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 4; col++) {
+                String piece = board[row][col];
+                if (!piece.equals(" - ") && piece.equals(board[row + 1][col + 1]) && piece.equals(board[row + 2][col + 2]) && piece.equals(board[row + 3][col + 3])) 
+                {
+                    return piece;
+                }
+            }
+        }
+
         return null;
     }
 
-    private void placePiece() {
+    public void placePiece() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Player " + playerTurn + ", please enter a column number (1-7):");
         String input = sc.nextLine();
@@ -108,7 +141,7 @@ public class Connect4 {
         swapPlayerTurn();
     }
 
-    private void showWinner(String symbol) {
+    public void showWinner(String symbol) {
         if (Objects.equals(symbol, " X ")) {
             System.out.println("Player 1 wins!");
         } else {
