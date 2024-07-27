@@ -1,4 +1,6 @@
 # Connect-Four-Game
+
+
 Steps to play Connect-Four-Game:
 1.Set Up: The game board consists of seven columns and six rows. Each player selects a color (traditionally red or yellow) and takes turns dropping one of their colored discs into the columns.
 
@@ -11,3 +13,5 @@ Steps to play Connect-Four-Game:
 5.Winning: The game ends when one player successfully forms a line of four of their discs. Once a player has achieved this, they call out that they've connected four and the game stops.
 
 6.Draw: If the grid fills up without either player forming a line of four, the game is a draw.
+
+PLAY AND HAVE FUN!!!
